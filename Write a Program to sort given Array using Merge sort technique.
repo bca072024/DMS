@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<conio.h>
+int a[20];
+void merge_sort (int[],int,int);
+void merge (int[],int,int,int);
+void main()
+{
+    int arr[30],i,n;
+    printf("\nEnter no of elements");
+    scanf("%d",&n);
+    printf("\nEnter %d value",n);
+    for(i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    printf("\nBefore sorting elements are");
+    for(i=0;i<n;i++)
+        printf("%d ",arr[i]);
+    merge_sort(arr,0,n-1);
+    printf("\nAfter sorting elements are");
+    for(i=0;i<n;i++)
+        printf("%d ",arr[i]);
+}
+void merge_sort(int arr[],int f,int l)
+{
+    int mid;
+    if(f<l)
+    {
+        mid =(f+l)/2;
+        merge_sort(arr,f,mid);
+        merge_sort(arr,mid+1,l);
+        merge(arr,f,mid,l);
+    }
+}
+void merge(int arr[],int low,int mid,int high)
+{
+    int l1,l2,i;
+    for(l1=low,l2=mid+1,i=low;l1<=mid&&l2<=high;i++)
+    {
+        if (arr[l1]<=arr[l2])
+            a[i]=arr[l1++];
+        else
+            a[i]=arr[l2++];
+    }
+    while(l1<=mid)
+        a[i++]=arr[l1++];
+    while(l2<=high)
+        a[i++]=arr[l2++];
+    for(i=low;i<=high;i++)
+        arr[i]=a[i];
+}
