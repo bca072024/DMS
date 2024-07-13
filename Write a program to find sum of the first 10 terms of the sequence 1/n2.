@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+ int n,i;
+ double sum=0.0,ser;
+ printf("Enter the sum of the n terms of the sequence=");
+ scanf("%d",&n);
+ for(i= 1;i<= n; i++)
+ {
+     ser=1/pow(i,2);
+     sum=sum+ser;
+ }
+    printf("sum of the first %d terms of the sequence is=%lf",n,sum);
+    return 0;
+}
